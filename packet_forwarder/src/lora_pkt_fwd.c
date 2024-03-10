@@ -81,7 +81,7 @@ License: Revised BSD License, see LICENSE.TXT file include in the project
 #define PUSH_TIMEOUT_MS     100
 #define PULL_TIMEOUT_MS     200
 #define GPS_REF_MAX_AGE     30          /* maximum admitted delay in seconds of GPS loss before considering latest GPS sync unusable */
-#define FETCH_SLEEP_MS      10          /* nb of ms waited when a fetch return no packets */
+#define FETCH_SLEEP_MS      1           /* nb of ms waited when a fetch return no packets */
 #define BEACON_POLL_MS      50          /* time in ms between polling of beacon TX status */
 
 #define PROTOCOL_VERSION    2           /* v1.6 */
@@ -2377,14 +2377,14 @@ void thread_up(void) {
                 nb_pkt_received_lora += 1;
 
                 /* Log nb of packets for ref_payload (DEBUG) */
-                for (k = 0; k < debugconf.nb_ref_payload; k++) {
+                /*for (k = 0; k < debugconf.nb_ref_payload; k++) {
                     if ((p->payload[0] == (uint8_t)(debugconf.ref_payload[k].id >> 24)) &&
                         (p->payload[1] == (uint8_t)(debugconf.ref_payload[k].id >> 16)) &&
                         (p->payload[2] == (uint8_t)(debugconf.ref_payload[k].id >> 8))  &&
                         (p->payload[3] == (uint8_t)(debugconf.ref_payload[k].id >> 0))) {
                             nb_pkt_received_ref[k] += 1;
                         }
-                }
+                }*/
             } else if (p->modulation == MOD_FSK) {
                 nb_pkt_log[p->if_chain][0] += 1;
                 nb_pkt_received_fsk += 1;
@@ -2393,7 +2393,7 @@ void thread_up(void) {
 
 
         /* DEBUG: print the number of packets received per channel and per SF */
-        {
+        /*{
             int l, m;
             MSG_PRINTF(DEBUG_PKT_FWD, "\n");
             for (l = 0; l < (LGW_IF_CHAIN_NB - 1); l++) {
@@ -2410,7 +2410,7 @@ void thread_up(void) {
             for (l = 0; l < debugconf.nb_ref_payload; l++) {
                 MSG_PRINTF(DEBUG_PKT_FWD, "Total number of LoRa packet received from 0x%08X: %u\n", debugconf.ref_payload[l].id, nb_pkt_received_ref[l]);
             }
-        }
+        }*/
 
         /* restart fetch sequence without sending empty JSON if all packets have been filtered out */
         if (pkt_in_dgram == 0) {

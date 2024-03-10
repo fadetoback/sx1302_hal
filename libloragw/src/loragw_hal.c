@@ -334,7 +334,7 @@ static int merge_packets(struct lgw_pkt_rx_s * p, uint8_t * nb_pkt) {
 
     /* --------------------------------------------- */
     /* ---------- For Debug only - START ----------- */
-    if (cpt > 0) {
+    /*if (cpt > 0) {
         DEBUG_MSG("<----- Searching for DUPLICATEs ------\n");
     }
     for (j = 0; j < cpt; j++) {
@@ -344,7 +344,7 @@ static int merge_packets(struct lgw_pkt_rx_s * p, uint8_t * nb_pkt) {
         } else {
             DEBUG_MSG   (" ftime=NONE\n");
         }
-    }
+    }*/
     /* ---------- For Debug only - END ------------- */
     /* --------------------------------------------- */
 
@@ -422,7 +422,7 @@ static int merge_packets(struct lgw_pkt_rx_s * p, uint8_t * nb_pkt) {
 
     /* --------------------------------------------- */
     /* ---------- For Debug only - START ----------- */
-    if (cpt > 0) {
+    /*if (cpt > 0) {
         DEBUG_MSG("--\n");
     }
     for (j = 0; j < cpt; j++) {
@@ -435,7 +435,7 @@ static int merge_packets(struct lgw_pkt_rx_s * p, uint8_t * nb_pkt) {
     }
     if (cpt > 0) {
         DEBUG_MSG( " ------------------------------------>\n\n" );
-    }
+    }*/
     /* ---------- For Debug only - END ------------- */
     /* --------------------------------------------- */
 
